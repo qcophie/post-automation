@@ -1,3 +1,5 @@
+import os, tweepy 
+
 # Generic success response
 def success_response(message="Data returned successfully", data=[]):
 	return {"response_code": "100", "message": message, "results": data}
@@ -16,3 +18,16 @@ def validate_post_content(request):
 	if not content:
 		return {"error": True, "error_message": "Please provide content to post", "error_code": 101}
 	
+
+def tweepy_fn(content):
+	CUSTOMER_API_KEY = os.environ.get("CUSTOMER_API_KEY")
+	CUSTOMER_API_KEY_SECRET = os.environ.get("CUSTOMER_API_KEY_SECRET")
+	CUSTOMER_ACCESS_TOKEN = os.environ.get("CUSTOMER_ACCESS_TOKEN")
+	CUSTOMER_ACCESS_TOKEN_SECRET = os.environ.get("CUSTOMER_ACCESS_TOKEN_SECRET")
+
+	auth = tweepy.OAuthHandler(CUSTOMER_API_KEY, CUSTOMER_API_KEY_SECRET, CUSTOMER_ACCESS_TOKEN, CUSTOMER_ACCESS_TOKEN_SECRET)
+	twitter_api = tweepy.API(auth)
+
+	tweet = twitter_api.update_status(content)
+	print("tweet", tweet)
+	return ''
