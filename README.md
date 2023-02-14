@@ -1,6 +1,8 @@
 # post-automation
 Effortlessly schedule and publish posts to multiple social media platforms using this highly efficient solution built with Python/Django, Docker, Pytest, and Django Rest Framework. Experience seamless automation and improve your online presence with this cutting-edge repository
 
+Youtube Video: https://youtu.be/FYleHEkw8Lc
+
 ## Perquisites
 - docker
 - docker-compose
